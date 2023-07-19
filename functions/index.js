@@ -1,4 +1,4 @@
-const {connection} = require("./database/connection");
+const {connection} = require("../database/connection");
 const serverless = require('serverless-http');
 const express = require("express");
 const cors  = require("cors");
@@ -21,10 +21,10 @@ app.use(express.json()); // recibir datos con content-type qpp/json
 app.use(express.urlencoded({extended: true})); // recibiendo datos por form - urlencoded
 
 //Crear rutas
-const rutas_articulos = require("./rutas/articulo");
+const rutas_articulos = require("../rutas/articulo");
 
 //Cargar las rutas
-app.use("/api", rutas_articulos);
+app.use("/.netlify/functions/api", rutas_articulos);
 
 
 app.get("/", (req, res) => {
