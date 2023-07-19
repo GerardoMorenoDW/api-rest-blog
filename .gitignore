@@ -26,3 +26,6 @@ dist-ssr
 *.jpg
 *.jpeg
 *.gif
+
+# Local Netlify folder
+.netlify

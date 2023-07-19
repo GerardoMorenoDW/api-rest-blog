@@ -1,4 +1,5 @@
 const {connection} = require("./database/connection");
+const serverless = require('serverless-http');
 const express = require("express");
 const cors  = require("cors");
 
@@ -25,6 +26,7 @@ const rutas_articulos = require("./rutas/articulo");
 //Cargar las rutas
 app.use("/api", rutas_articulos);
 
+
 app.get("/", (req, res) => {
 
     console.log("se ejecuto el endppoint probando");
@@ -39,3 +41,5 @@ app.get("/", (req, res) => {
 app.listen(puerto, () => {
     console.log("servidor corriendo en el puerto "+puerto);
 })
+
+module.exports.handler = serverless(app);
